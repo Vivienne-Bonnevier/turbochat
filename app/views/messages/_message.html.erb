@@ -1,0 +1,6 @@
+<div class="flex flex-row m-1">
+  <% unless message.room.is_private %>
+    <h6 class="name underline font-bold"><%= message.user.email %>&colon;</h6>
+  <% end %>
+  <p>&nbsp;<%= message.body %></p>
+</div>

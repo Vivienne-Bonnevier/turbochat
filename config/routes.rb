@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :rooms
+  resources :rooms do
+    resources :messages
+  end
 
   root 'pages#home'
 
