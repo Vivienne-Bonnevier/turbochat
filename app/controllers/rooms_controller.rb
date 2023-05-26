@@ -9,7 +9,7 @@ class RoomsController < ApplicationController
   def show
     @single_room = Room.find(params[:id]) if params[:id]
     @message = Message.new
-    @messages = @room.messages.order(created_at: :asc)
+    @messages = @single_room.messages.order(created_at: :asc)
     render "index"
   end
 
