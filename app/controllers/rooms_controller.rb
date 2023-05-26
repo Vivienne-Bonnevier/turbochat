@@ -3,14 +3,12 @@ class RoomsController < ApplicationController
   before_action :index_setup, only: [:index, :show]
 
   def index
-    render "index"
   end
 
   def show
     @single_room = Room.find(params[:id]) if params[:id]
     @message = Message.new
     @messages = @single_room.messages.order(created_at: :asc)
-    render "index"
   end
 
   def create
