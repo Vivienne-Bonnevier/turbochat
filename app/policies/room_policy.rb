@@ -7,8 +7,7 @@ class RoomPolicy < ApplicationPolicy
   end
 
   def show?
-    if room.is_private
-      user.admin? || room.participants.where(user_id: user.id).first
-    end
+    return true unless room.is_private
+    user.admin? || room.participants.where(user_id: user.id).first
   end
 end
