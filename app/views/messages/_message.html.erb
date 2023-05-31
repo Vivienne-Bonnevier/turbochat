@@ -1,5 +1,5 @@
 <div class="flex flex-row m-1 group">
   <span class="opacity-0 group-hover:opacity-100 text-sm text-justify font-mono"><%= message.updated_at.in_time_zone('Central Time (US & Canada)').strftime("%T") %>&nbsp;</span>
   <span class="name underline font-bold"><%= link_to message.user.email, message.user %>&colon;</span>
-  <p>&nbsp;<%= message.body %></p>
+  <p>&nbsp;<%= markdown(message.body) %></p>
 </div>
