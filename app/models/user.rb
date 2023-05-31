@@ -16,6 +16,6 @@ class User < ApplicationRecord
   end
 
   def staff?
-    self.role_id == (2 || 3)
+    self.role_id == 2 || self.role_id == 3
   end
 end

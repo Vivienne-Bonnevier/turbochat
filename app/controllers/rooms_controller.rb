@@ -7,6 +7,9 @@ class RoomsController < ApplicationController
 
   def show
     @single_room = Room.find(params[:id]) if params[:id]
+
+    authorize @single_room
+
     @message = Message.new
     @messages = @single_room.messages.order(created_at: :asc)
   end
