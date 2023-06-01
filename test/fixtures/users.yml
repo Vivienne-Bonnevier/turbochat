@@ -9,6 +9,7 @@ one:
   email: one@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   created_at: <%= Time.zone.now %>
+  role_id: 1
 # column: value
 #
 two:
@@ -16,5 +17,12 @@ two:
   email: two@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   created_at: <%= Time.zone.now %>
-
+  role_id: 1
 # column: value
+
+three:
+  id: 3
+  email: three@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  created_at: <%= Time.zone.now %>
+  role_id: 2
