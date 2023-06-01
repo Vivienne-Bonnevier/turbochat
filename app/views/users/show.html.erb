@@ -20,7 +20,11 @@
     <div class="text-center shadow-xl bg-gray-500 border-black border-solid"><h3 class="text-2xl text-black font-bold"><%= @user.email %></h3></div>
     <%= turbo_stream_from @single_room %>
     <div id="messages" class="overflow-y-scroll h-full text-white", data-controller="scroll">
-      <%= render @messages %>
+      <%= turbo_frame_tag "page_handler" %>
+      <%= render "messages/pager", pagy: @pagy %>
+      <div id="messages-container">
+        <%= render @messages %>
+      </div>
     </div>
     <%= render "messages/new_message_form" %>
   <div>

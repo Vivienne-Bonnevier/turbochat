@@ -12,7 +12,7 @@ class RoomsController < ApplicationController
 
     @message = Message.new
     message_query = @single_room.messages.order(created_at: :desc)
-    @pagy, messages = pagy(message_query, items: 20)
+    @pagy, messages = pagy(message_query, items: 50)
     @messages = messages.reverse
   end
 

@@ -11,7 +11,9 @@ class UsersController < ApplicationController
     authorize @single_room
 
     @message = Message.new
-    @messages = @single_room.messages.order(created_at: :asc)
+    message_query = @single_room.messages.order(created_at: :desc)
+    @pagy, messages = pagy(message_query, items: 50)
+    @messages = messages.reverse
   end
 
   private
