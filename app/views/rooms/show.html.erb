@@ -19,8 +19,11 @@
   <div id="single_room" class="flex flex-col content-end h-full">
     <div class="text-center shadow-xl bg-gray-500 border-black border-solid"><h3 class="text-2xl text-black font-bold"><%= @single_room.name %></h3></div>
     <%= turbo_stream_from @single_room %>
-    <div id="messages" class="overflow-y-scroll h-full text-white", data-controller="scroll">
-      <%= render @messages %>
+    <div id="messages-container" class="overflow-y-scroll h-full text-white", data-controller="scroll">
+      <%= render "messages/pager", pagy: @pagy %>
+      <div id="messages">
+        <%= render @messages %>
+      </div>
     </div>
     <%= render "messages/new_message_form" %>
   <div>
