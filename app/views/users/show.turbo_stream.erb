@@ -7,6 +7,6 @@
   <%= turbo_stream_action_tag(
     "replace",
     target: "pager",
-    template: %(#{render "messages/pager_room", pagy: @pagy})
+    template: %(#{render "messages/pager_user", pagy: @pagy})
     ) %>
 <% end %>

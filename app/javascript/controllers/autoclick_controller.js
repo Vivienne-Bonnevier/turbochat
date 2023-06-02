@@ -8,6 +8,7 @@ export default class Autoclick extends Controller {
   static messagesContainer;
   static topMessage;
   static throttling = false;
+  static messages = document.getElementById("messages")
   connect() {
     console.log("Connected to Autoclick!");
     useIntersection(this, this.options);
@@ -21,16 +22,16 @@ export default class Autoclick extends Controller {
       Autoclick.messagesContainer =
         document.getElementById("messages-container");
       Autoclick.topMessage = Autoclick.messagesContainer.children[0];
-      Autoclick.throttle(this.element.click(), 300);
+      Autoclick.throttle(this.element.click(), 100);
 
       setTimeout(() => {
-        Autoclick.topMessage.scrollIntoView({
-          behavior: "auto",
-          block: "end",
-        });
-        console.log("Scrolling");
+        // Autoclick.topMessage.scrollIntoView({
+        //   behavior: "auto",
+        //   block: "end",
+        // });
+        messages.scrollTo(0,120)
         Autoclick.throttling = false;
-      }, 250);
+      }, 50);
     }
   }
 
