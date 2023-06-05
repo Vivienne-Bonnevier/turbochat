@@ -2,7 +2,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+         :confirmable
   # Stops showing own name on list of logged-in users
   scope :all_except, -> (user) { where.not(id: user) }
   after_create_commit { broadcast_append_to "users" }
